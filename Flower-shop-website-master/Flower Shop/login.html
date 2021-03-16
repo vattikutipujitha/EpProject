@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+<script>
+    {
+      function check1(){
+        var n=document.getElementById('uname').value;
+        if(n==""){
+      error="Name Must be filled";
+      document.getElementById("ner").innerHTML=error;
+        }
+      }
+      function check2(){
+        var n=document.getElementById('password').value;
+        if(n==""){
+      error="Password Must be filled";
+      document.getElementById("nan").innerHTML=error;
+        }
+      }
+      function check(){
+        var n1=document.getElementById('uname').value;
+        var n2=document.getElementById('password').value;
+        if (n1=="" && n2=="") {
+          error="Name Must be filled";
+          document.getElementById("ner").innerHTML=error;
+          error1="Password Must be filled";
+          document.getElementById("nan").innerHTML=error1;
+          return false;
+        }
+        else if(n1==""){
+      error="Name Must be filled";
+      document.getElementById("ner").innerHTML=error;
+      return false;
+        }
+        else if(n2==""){
+      error="Password Must be filled";
+      document.getElementById("nan").innerHTML=error;
+      return false;
+        }
+        return true;
+    }
+    }
+  </script>
+
+
+<div id="login">
+
+  <div class="divGroup glass">
+    <div class="welcomeHeader">
+      <h1>Login</h1>
+    </div>
+    <form id="myform" >
+    <div>
+      <div id="ner" class="col"></div>
+      <input placeholder="Username" class="inputCustomStyle" id ="uname" onchange="check1()" >
+      
+     
+    </div>
+    <br>
+    <div>
+       <div id="nan" class="col"></div>
+      <input type="password"class="inputCustomStyle" placeholder="password" id="password" onchange="check2()" >
+      
+     
+    </div>
+
+    <div class="GlassButtons">
+       <form>
+      <button  class="glassBtn" onclick="return check()">Login</button>
+      </form>
+      <form action="signup.html">
+    <button     class="glassBtn" >sign up </button>
+    </form>
+
+    </div>
+    </form>
+     <style>
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white;
+}
+</style>
+  </div>
+</div>
+</body>
+</html>

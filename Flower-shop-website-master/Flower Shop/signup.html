@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <link rel="stylesheet" type="text/css" href="css/signup.css">
+</head>
+
+
+<body>
+<script>
+{
+  function check1(){
+        var n=document.getElementById('uname').value;
+        var error="";
+        if(n.length<6){
+      error="Username should contain atleast 6 characters";
+      document.getElementById("ner").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"username should not contain numbers";
+                document.getElementById("ner").innerHTML=error;
+            break;}
+        }
+        document.getElementById("ner").innerHTML=error;
+     
+    }
+      function check2(){
+        var n=document.getElementById('fname').value;
+        var error="";
+        if(n.length<6){
+      error="FirstName should contain atleast 6 characters";
+      document.getElementById("npa").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"Name should not contain numbers";
+                document.getElementById("npa").innerHTML=error;
+            break;}
+        }
+        document.getElementById("npa").innerHTML=error;
+     
+    }
+      function check3(){
+        var n=document.getElementById('lname').value;
+        var error="";
+        if(n.length<6){
+      error="LastName should  contain atleast 6 characters";
+      document.getElementById("nem").innerHTML=error;}
+        for(var i=0;i<n.length;i++){
+            if(n[i]=='0'||n[i]=='1'||n[i]=='2'||n[i]=='3'||n[i]=='4'||n[i]=='5'||n[i]=='6'||n[i]=='7'||n[i]=='8'||n[i]=='9'){
+                error=error+"\n"+"Name should not contain numbers";
+                document.getElementById("nem").innerHTML=error;
+            break;}
+        }
+        document.getElementById("nem").innerHTML=error;
+     
+    }
+    function check4(){
+        var error="";
+        var n1=document.getElementById('password').value.length;
+        if(n1<6){
+            error="Password should not be less than 6 characters";
+    document.getElementById("nan").innerHTML=error;}
+    document.getElementById("nan").innerHTML=error;
+
+    }
+    function check6(){
+        var error="";
+        var n1=document.getElementById('password').value.length;
+        var n2=document.getElementById('cpassword').value.length;
+        var n3=document.getElementById('password').value;
+        var n4=document.getElementById('cpassword').value;
+        if(n2!=n1 && n4!=n3){
+            error="Confirm Password must be same as Password";
+    document.getElementById("nta").innerHTML=error;}
+    document.getElementById("nta").innerHTML=error;
+
+    }
+    function check5(){
+        var error="";
+        var c=0;
+        var n=document.getElementById("email").value;
+        if(n[n.length-1]=='m'&&n[n.length-2]=='o'&&n[n.length-3]=='c'){
+        for(var i=0;i<n.length;i++){
+        if(n[i]=='@'){
+        c=1;
+            break;} }}
+            if(c==0)
+            error="E-Mail must be in name@domain.com format";
+            document.getElementById("nnu").innerHTML=error;
+             
+    }
+    function check(){
+        var n1=document.getElementById('uname').value;
+        var n2=document.getElementById('fname').value;
+        var n3=document.getElementById('lname').value;
+        var n4=document.getElementById('email').value;
+        var n5=document.getElementById('password').value;
+        var n6=document.getElementById('cpassword').value;
+        if (n1=="" && n2=="" && n3=="" && n4=="" && n5=="" && n6=="") {
+          error="Username Must be filled";
+      document.getElementById("ner").innerHTML=error;
+          error1="FirstName Must be filled";
+      document.getElementById("npa").innerHTML=error1;
+          error2="LastName must be filled";
+      document.getElementById("nem").innerHTML=error2;
+           error3="Password must be filled";
+    document.getElementById("nan").innerHTML=error3;
+           error4="Confirm Password must be filled";
+    document.getElementById("nta").innerHTML=error4;
+          error="E-Mail must be filled";
+            document.getElementById("nnu").innerHTML=error;
+
+          return false;
+        }
+        return true;
+    }
+
+}  
+</script>
+
+
+
+
+<div id="signup">
+
+  <div class="divGroup glass">
+    <div class="welcomeHeader">
+      <h1>Signup</h1>
+    </div>
+    <div>
+      <div id="ner" class="col"></div>
+      <input placeholder="UserName" class="inputCustomStyle" id="uname" onchange="check1()">
+      
+    
+    
+    </div>
+
+    <div>
+       <div id="npa" class="col"></div>
+      <input placeholder="FirstName" class="inputCustomStyle" id="fname" onchange="check2()" >
+      
+   
+    </div>
+    <div>
+       <div id="nem" class="col"></div>
+      <input placeholder="LastName" class="inputCustomStyle" id="lname" onchange="check3()" >
+      
+     
+    </div>
+    <div>
+       <div id="nnu" class="col" ></div>
+      <input placeholder="Email-id" class="inputCustomStyle" id="email" onchange="check5()">
+      
+     
+    </div>
+
+    <div>
+       <div id="nan" class="col"></div>
+      <input type="password"class="inputCustomStyle" placeholder="password" id="password" onchange="check4()">
+      
+     
+    </div>
+    <div>
+      <div id="nta" class="col"></div>
+      <input placeholder="Confirm Password" class="inputCustomStyle" type="password"  id="cpassword" onchange="check6()">
+    </div>
+
+    <div class="GlassButtons">
+     <span></span>
+
+      <button class="glassBtn" onclick="return check()">Signup </button>
+     
+    </div>
+    <style>
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white;
+}
+</style>
+    
+  </div>
+</div>
+</body>
+</html>
